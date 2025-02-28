@@ -526,7 +526,11 @@
     </div>
 
     <div class="footer-note">
-        ※ 이 시뮬레이터는 재미를 위한 것이며, 실제 복권 당첨금이나 수익률과는 무관합니다.
+        <p>
+            ※ 이 시뮬레이터는 재미를 위한 것이며, 실제 복권 당첨금이나
+            수익률과는 무관합니다.
+        </p>
+        <a class="link" href="https://blog.omoolgae.site/">뭐라도 만드는 오물개 블로그 방문하기</a>
     </div>
 </div>
 
@@ -539,9 +543,13 @@
         padding: 1.5rem;
         font-family: "Noto Sans KR", "Helvetica Neue", Helvetica, Arial,
             sans-serif;
-        border: 1px solid #ddd;
+        border: 1px solid #ddd; 
         border-radius: 8px;
         background-color: #fafafa;
+    }
+    .link{
+        text-decoration: underline;
+        color: #7f7f7f;
     }
     /* 카드 기본 스타일 */
     .card {
