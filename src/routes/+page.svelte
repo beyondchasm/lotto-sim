@@ -18,6 +18,7 @@
     };
 
     let lastDraws = []; // 최근 당첨 기록 (최대 10회)
+    let count = 0;
     let speed = 10; // 기본 배속
     let intervalId = null;
 
@@ -121,18 +122,19 @@
         // playerTicket = [...selectedNumbers]; <-- 제거
     }
 
-    // 랜덤 티켓
+    // 랜덤 번호 뽑기
     function generateRandomTicket() {
         const nums = [];
+        // 6개 넣자.
         while (nums.length < 6) {
-            const num = Math.floor(Math.random() * 45) + 1;
-            if (!nums.includes(num)) nums.push(num);
+            const num = Math.floor(Math.random() * 45) + 1; //1부터 45까지 랜덤 숫자 뽑자
+            if (!nums.includes(num)) nums.push(num); // nums 중복 체크
         }
-        return nums.sort((a, b) => a - b);
+        return nums.sort((a, b) => a - b); // 오름차순 정렬
     }
 
     // (5) 시뮬레이션 시작
-    //    - 1000배속, 10000배속이 실제로 빠르게 동작하도록
+    //    - 100배속, 1000배속이 실제로 빠르게 동작하도록
     //      1ms 주기로 speed번 반복 추첨
     function startSimulation() {
         if (playerTicket.length < 6) {
@@ -146,9 +148,15 @@
         intervalId = setInterval(() => {
             for (let i = 0; i < speed; i++) {
                 simulateDraw();
+                // count++;
             }
         }, 1);
     }
+    // 1초마다 count 값을 찍고, 다시 0으로 초기화
+    // const checkIntervalId = setInterval(() => {
+    //     console.log(`실제로 ${count}번 호출됨`);
+    //     count = 0;
+    // }, 1000);
 
     // (6) 일시정지
     function pauseSimulation() {
@@ -163,11 +171,13 @@
     //    - 이미 실행 중이면 setInterval 재설정
     function setSpeed(newSpeed) {
         speed = newSpeed;
+        console.log(newSpeed + "배속으로 변경");
         if (isRunning) {
             clearInterval(intervalId);
             intervalId = setInterval(() => {
                 for (let i = 0; i < speed; i++) {
                     simulateDraw();
+                    // count++;
                 }
             }, 1);
         }
@@ -530,7 +540,9 @@
             ※ 이 시뮬레이터는 재미를 위한 것이며, 실제 복권 당첨금이나
             수익률과는 무관합니다.
         </p>
-        <a class="link" href="https://blog.omoolgae.site/">뭐라도 만드는 오물개 블로그 방문하기</a>
+        <a class="link" href="https://blog.omoolgae.site/"
+            >뭐라도 만드는 오물개 블로그 방문하기</a
+        >
     </div>
 </div>
 
@@ -543,11 +555,11 @@
         padding: 1.5rem;
         font-family: "Noto Sans KR", "Helvetica Neue", Helvetica, Arial,
             sans-serif;
-        border: 1px solid #ddd; 
+        border: 1px solid #ddd;
         border-radius: 8px;
         background-color: #fafafa;
     }
-    .link{
+    .link {
         text-decoration: underline;
         color: #7f7f7f;
     }
