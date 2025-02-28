@@ -1,23 +1,42 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 
 <head>
 	<meta charset="utf-8" />
 	<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-0VFY9BPHVL"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag() { dataLayer.push(arguments); }
 		gtag('js', new Date());
-
 		gtag('config', 'G-0VFY9BPHVL');
 	</script>
+
+	<!-- 기본 Responsive 세팅 -->
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<!-- 기본 SEO 메타 태그 -->
+	<title>오물개 로또 시뮬레이션</title>
+	<meta name="description" content="오물개 로또 시뮬레이션 - 로또번호 추천 및 시뮬레이션 서비스" />
+	<meta name="keywords" content="로또, 로또번호, 시뮬레이션, 번호추천, 오물개" />
+	<meta name="author" content="오물개" />
+
+	<!-- Open Graph (SNS 미리보기) -->
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="오물개 로또 시뮬레이션" />
+	<meta property="og:description" content="로또번호 추천 및 시뮬레이션 서비스" />
+	<!-- <meta property="og:image" content="%sveltekit.assets%/lotto-og-image.png" /> -->
+	<meta property="og:url" content="https://omoolgae-lotto-sim.vercel.app/" />
+
+
+
 	%sveltekit.head%
 </head>
 
 <body data-sveltekit-preload-data="hover">
+	<!-- SvelteKit가 렌더링할 영역 -->
 	<div style="display: contents">%sveltekit.body%</div>
 </body>
 
